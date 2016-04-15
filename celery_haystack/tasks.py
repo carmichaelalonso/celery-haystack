@@ -94,8 +94,7 @@ class CeleryHaystackSignalHandler(Task):
         # Then get the model class for the object path
         model_class = self.get_model_class(object_path, **kwargs)
         for current_index, using in self.get_indexes(model_class, **kwargs):
-            current_index_name = ".".join([current_index.__class__.__module__,
-                                           current_index.__class__.__name__])
+            current_index_name = current_index.__class__.__name__
 
             if action == 'delete':
                 # If the object is gone, we'll use just the identifier
